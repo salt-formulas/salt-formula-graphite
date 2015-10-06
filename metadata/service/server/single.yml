@@ -1,0 +1,27 @@
+applications:
+- graphite
+parameters:
+  supervisor:
+    server:
+      service:
+        graphite_server:
+          name: server
+          type: graphite
+  graphite:
+    server:
+      enabled: true
+      time_zone: 'Europe/Prague'
+      cache:
+        engine: 'memcached'
+        host: '127.0.0.1'
+        prefix: 'GRAPHITE'
+      database:
+        engine: 'postgresql'
+        host: '127.0.0.1'
+        name: 'graphite'
+        password: ${_param:postgresql_graphite_password}
+        user: 'graphite'
+      mail:
+        host: localhost
+        password: password
+        user: username

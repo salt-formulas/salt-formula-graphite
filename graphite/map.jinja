@@ -1,0 +1,45 @@
+
+{%- set server = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['python-dev', 'python-memcache', 'python-psycopg2', 'python-imaging', 'python-cairo'],
+    },
+}, merge=salt['pillar.get']('graphite:server')) %}
+
+{%- set collector = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['python-dev', 'libffi-dev'],
+        'storage_schema': {},
+    },
+}, merge=salt['pillar.get']('graphite:collector')) %}
+
+{%- set relay = salt['grains.filter_by']({
+    'default': {
+        'bind': {
+            'address': '0.0.0.0',
+            'port': 2013
+        },
+        'method': 'consistent-hashing',
+        'destinations': [{'host': '127.0.0.1', 'port': '2004'}]
+    },
+}, merge=salt['pillar.get']('carbon:relay')) %}
+
+{%- set aggregator = salt['grains.filter_by']({
+    'default': {
+        'bind': {
+            'address': '0.0.0.0',
+            'port': 2023
+        },
+    	'rewrite_rule': {},
+        'destinations': [{'host': '127.0.0.1', 'port': '2004'}]
+    },
+}, merge=salt['pillar.get']('carbon:aggregator')) %}
+
+{%- set cache = salt['grains.filter_by']({
+    'default': {
+        'bind': {
+            'address': '0.0.0.0',
+            'port': 2003
+        },
+        'destinations': [{'host': '127.0.0.1', 'port': '2004'}]
+    },
+}, merge=salt['pillar.get']('carbon:cache')) %}

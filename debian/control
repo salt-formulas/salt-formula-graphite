@@ -1,0 +1,15 @@
+Source: salt-formula-graphite
+Maintainer: Jakub Pavlik <jakub.pavlik@tcpcloud.eu>
+Section: admin
+Priority: optional
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: http://www.tcpcloud.eu
+Vcs-Browser: https://github.com/tcpcloud/salt-formula-graphite
+Vcs-Git: https://github.com/tcpcloud/salt-formula-graphite.git
+
+Package: salt-formula-graphite
+Architecture: all
+Depends: ${misc:Depends}, salt-master, reclass
+Description: Graphite Salt formula
+ Install and configure Graphite server and client.
