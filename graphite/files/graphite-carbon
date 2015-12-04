@@ -1,2 +1,10 @@
-# Change to true, to enable carbon-cache on boot
+{%- from "graphite/map.jinja" import aggregator, relay with context %}# Change to true, to enable carbon-cache on boot
 CARBON_CACHE_ENABLED=true
+
+{%- if aggregator.enabled %}
+CARBON_AGGREGATE_ENABLED=true
+{%- endif %}
+
+{%- if relay.enabled %}
+CARBON_RELAY_ENABLED=true
+{%- endif %}
