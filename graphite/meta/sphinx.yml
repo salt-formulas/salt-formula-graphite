@@ -1,0 +1,7 @@
+doc:
+  name: Graphite
+  description: Graphite is an enterprise-scale monitoring tool that runs well on cheap hardware.
+  role:
+    server:
+      name: server
+      param: {}

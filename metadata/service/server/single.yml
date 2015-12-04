@@ -1,5 +1,7 @@
 applications:
 - graphite
+classes:
+- service.graphite.support
 parameters:
   supervisor:
     server:
