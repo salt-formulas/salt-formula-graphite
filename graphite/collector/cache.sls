@@ -4,15 +4,6 @@
 include:
 - graphite.collector._common
 
-/etc/default/graphite-carbon:
-  file.managed:
-  - source: salt://graphite/files/graphite-carbon
-  - template: jinja
-  - user: root
-  - group: root
-  - require:
-    - pkg: carbon_packages
-
 /etc/carbon/storage-schemas.conf:
   file.managed:
   - source: salt://graphite/files/storage-schemas.conf

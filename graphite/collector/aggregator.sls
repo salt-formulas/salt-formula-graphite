@@ -4,16 +4,6 @@
 include:
 - graphite.collector._common
 
-/etc/init.d/carbon-aggregator:
-  file.managed:
-  - source: salt://graphite/files/carbon-aggregator
-  - template: jinja
-  - mode: 766
-  - user: root
-  - group: root
-  - require_in:
-    - service: carbon-aggregator
-
 /etc/carbon/rewrite-rules.conf:
   file.managed:
   - source: salt://graphite/files/rewrite-rules.conf

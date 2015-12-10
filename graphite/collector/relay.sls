@@ -4,16 +4,6 @@
 include:
 - graphite.collector._common
 
-/etc/init.d/carbon-relay:
-  file.managed:
-  - source: salt://graphite/files/carbon-relay
-  - template: jinja
-  - mode: 766
-  - user: root
-  - group: root
-  - require_in:
-    - service: carbon-relay
-
 /etc/carbon/relay-rules.conf:
   file.managed:
   - source: salt://graphite/files/relay-rules.conf

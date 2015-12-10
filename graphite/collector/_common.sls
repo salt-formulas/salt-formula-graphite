@@ -21,3 +21,12 @@ carbon_packages:
   - target: /etc/carbon/carbon.conf
   - require:
     - pkg: carbon_packages
+
+/etc/default/graphite-carbon:
+  file.managed:
+  - source: salt://graphite/files/graphite-carbon
+  - template: jinja
+  - user: root
+  - group: root
+  - require:
+    - pkg: carbon_packages
