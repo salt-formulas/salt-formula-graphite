@@ -2,7 +2,7 @@
 CARBON_CACHE_ENABLED=true
 
 {%- if aggregator.enabled %}
-CARBON_AGGREGATE_ENABLED=true
+CARBON_AGGREGATOR_ENABLED=true
 {%- endif %}
 
 {%- if relay.enabled %}
