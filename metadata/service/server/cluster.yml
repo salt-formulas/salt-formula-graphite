@@ -3,12 +3,6 @@ applications:
 classes:
 - service.graphite.support
 parameters:
-  supervisor:
-    server:
-      service:
-        graphite_server:
-          name: server
-          type: graphite
   graphite:
     server:
       enabled: true

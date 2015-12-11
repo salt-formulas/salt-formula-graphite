@@ -25,8 +25,6 @@ include:
 carbon-aggregator:
   service.running:
   - enable: true
-  - require:
-    - file: /etc/init.d/carbon-aggregator
   - watch:
     - file: /etc/carbon/storage-aggregation.conf
     - file: /etc/carbon/rewrite-rules.conf
