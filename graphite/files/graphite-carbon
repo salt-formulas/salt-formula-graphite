@@ -1,10 +1,10 @@
-{%- from "graphite/map.jinja" import aggregator, relay with context %}
+{%- from "graphite/map.jinja" import cache, aggregator, relay with context %}
+{%- if cache.enabled %}
 CARBON_CACHE_ENABLED=true
-
+{%- endif %}
 {%- if aggregator.enabled %}
 CARBON_AGGREGATOR_ENABLED=true
 {%- endif %}
-
 {%- if relay.enabled %}
 CARBON_RELAY_ENABLED=true
 {%- endif %}
