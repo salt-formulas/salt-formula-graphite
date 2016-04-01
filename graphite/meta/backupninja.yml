@@ -1,0 +1,5 @@
+backup:
+  graphite:
+    fs_includes:
+    - /var/lib/graphite/whisper
+    fs_excludes: []
