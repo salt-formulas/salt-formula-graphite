@@ -1,5 +1,4 @@
-{%- from "graphite/map.jinja" import server with context %}
-{%- from "linux/map.jinja" import system with context %}
+{%- from "graphite/map.jinja" import server with context -%}
 ## Graphite local_settings.py
 # Edit this file to customize the default Graphite webapp settings
 #
@@ -13,7 +12,7 @@
 # Set your local timezone (Django's default is America/Chicago)
 # If your graphs appear to be offset by a couple hours then this probably
 # needs to be explicitly set to your local timezone.
-TIME_ZONE = '{{ system.timezone }}'
+TIME_ZONE = '{{ server.timezone }}'
 
 # Override this to provide documentation specific to your Graphite deployment
 #DOCUMENTATION_URL = "http://graphite.readthedocs.org/"

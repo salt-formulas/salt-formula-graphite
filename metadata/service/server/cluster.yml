@@ -6,7 +6,7 @@ parameters:
   graphite:
     server:
       enabled: true
-      time_zone: 'Europe/Prague'
+      timezone: ${linux:system:timezone}
       carbon_links: 
       - host: ${_param:cluster_node01_address}
         port: 7002

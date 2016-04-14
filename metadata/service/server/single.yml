@@ -6,7 +6,7 @@ parameters:
   graphite:
     server:
       enabled: true
-      time_zone: 'Europe/Prague'
+      timezone: ${linux:system:timezone}
       cache:
         engine: 'memcached'
         host: '127.0.0.1'

@@ -2,7 +2,7 @@ graphite:
   server:
     enabled: true
     debug: true
-    time_zone: 'Europe/Prague'
+    timezone: 'UTC'
     cache:
       engine: 'memcached'
       host: '127.0.0.1'
