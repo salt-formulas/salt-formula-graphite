@@ -1,2 +1,0 @@
-graphite/*             /usr/share/salt-formulas/env/graphite/
-metadata/service/*      /usr/share/salt-formulas/reclass/service/graphite/
