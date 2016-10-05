@@ -29,15 +29,6 @@ graphite_packages:
   - require:
     - pkg: graphite_packages
 
-/usr/share/graphite-web/graphite.wsgi:
-  file.managed:
-  - source: salt://graphite/files/graphite.wsgi
-  - template: jinja
-  - user: root
-  - group: root
-  - require:
-    - pkg: graphite_packages
-
 /etc/graphite/local_settings.py:
   file.managed:
   - source: salt://graphite/files/local_settings.py

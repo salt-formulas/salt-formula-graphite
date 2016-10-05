@@ -19,10 +19,22 @@ include:
   - require:
     - pkg: carbon_packages
 
+{%- if grains.get('init', None) == 'systemd' %}
+
+carbon-relay@1:
+  service.running:
+  - enable: true
+  - watch:
+    - file: /etc/carbon/relay-rules.conf
+
+{%- else %}
+
 carbon-relay:
   service.running:
   - enable: true
   - watch:
     - file: /etc/carbon/relay-rules.conf
+
+{%- endif %}
 
 {%- endif %}
