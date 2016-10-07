@@ -22,11 +22,24 @@ include:
   - require:
     - pkg: carbon_packages
 
+{%- if grains.get('init', None) == 'systemd' %}
+
+carbon-aggregator@1:
+  service.running:
+  - enable: true
+  - watch:
+    - file: /etc/carbon/storage-aggregation.conf
+    - file: /etc/carbon/rewrite-rules.conf
+
+{%- else %}
+
 carbon-aggregator:
   service.running:
   - enable: true
   - watch:
     - file: /etc/carbon/storage-aggregation.conf
     - file: /etc/carbon/rewrite-rules.conf
+
+{%- endif %}
 
 {%- endif %}
