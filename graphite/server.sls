@@ -38,9 +38,14 @@ graphite_packages:
   - require:
     - pkg: graphite_packages
 
-/usr/bin/graphite-manage syncdb --noinput:
-  cmd.run: 
+/usr/bin/graphite-manage migrate auth --noinput:
+  cmd.run:
   - require:
     - file: /etc/graphite/local_settings.py
+
+/usr/bin/graphite-manage migrate --noinput:
+  cmd.run:
+  - require:
+    - cmd: /usr/bin/graphite-manage migrate auth --noinput
 
 {%- endif %}
