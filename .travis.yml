@@ -28,3 +28,6 @@ before_script:
 
 script:
   - test ! -e .kitchen.yml || bundle exec kitchen test -t tests/integration
+
+notifications:
+  webhooks: https://hooks.slack.com/services/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
