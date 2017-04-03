@@ -38,6 +38,8 @@ graphite_packages:
   - require:
     - pkg: graphite_packages
 
+{%- if not grains.get('noservices', False) %}
+
 /usr/bin/graphite-manage migrate auth --noinput:
   cmd.run:
   - require:
@@ -47,5 +49,7 @@ graphite_packages:
   cmd.run:
   - require:
     - cmd: /usr/bin/graphite-manage migrate auth --noinput
+
+{%- endif %}
 
 {%- endif %}
